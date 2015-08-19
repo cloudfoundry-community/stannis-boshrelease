@@ -1,0 +1,5 @@
+check process bosh_pipeline_dashboard_agent
+  with pidfile /var/vcap/sys/run/bosh_pipeline_dashboard_agent/bosh_pipeline_dashboard_agent.pid
+  start program "/var/vcap/jobs/bosh_pipeline_dashboard_agent/bin/monit_debugger bosh_pipeline_dashboard_agent_ctl '/var/vcap/jobs/bosh_pipeline_dashboard_agent/bin/bosh_pipeline_dashboard_agent_ctl start'"
+  stop program "/var/vcap/jobs/bosh_pipeline_dashboard_agent/bin/monit_debugger bosh_pipeline_dashboard_agent_ctl '/var/vcap/jobs/bosh_pipeline_dashboard_agent/bin/bosh_pipeline_dashboard_agent_ctl stop'"
+  group vcap

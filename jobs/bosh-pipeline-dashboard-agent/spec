@@ -1,0 +1,13 @@
+---
+name: bosh-pipeline-dashboard-agent
+packages: []
+templates:
+  bin/monit_debugger: bin/monit_debugger
+  bin/bosh_pipeline_dashboard_agent_ctl: bin/bosh_pipeline_dashboard_agent_ctl
+  config/bosh_pipeline_dashboard_agent.conf.erb: config/bosh_pipeline_dashboard_agent.conf
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+properties:
+  bosh_pipeline_dashboard_agent.leader_address:
+    description: Hostname/IP to the leader/master of the cluster
