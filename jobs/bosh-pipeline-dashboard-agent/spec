@@ -4,10 +4,20 @@ packages: []
 templates:
   bin/monit_debugger: bin/monit_debugger
   bin/bosh_pipeline_dashboard_agent_ctl: bin/bosh_pipeline_dashboard_agent_ctl
-  config/bosh_pipeline_dashboard_agent.conf.erb: config/bosh_pipeline_dashboard_agent.conf
+  bin/manual_upload: bin/manual_upload
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh
   helpers/ctl_utils.sh: helpers/ctl_utils.sh
 properties:
-  bosh_pipeline_dashboard_agent.leader_address:
-    description: Hostname/IP to the leader/master of the cluster
+  bosh_uploader.interval:
+    description: Interval in seconds between uploads of latest data
+    default: 60
+  bosh_uploader.bosh_target:
+    description: The https://1.2.3.4:25555 URI for target BOSH
+  bosh_uploader.bosh_user:
+    description: The username for authentication to BOSH
+  bosh_uploader.bosh_password:
+    description: The password for authentication to BOSH
+
+  bosh_uploader.collector_api:
+    description: The URI for the bosh-pipeline-dashboard collector

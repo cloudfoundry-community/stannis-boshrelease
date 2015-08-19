@@ -17,9 +17,15 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    exec chpst -u vcap:vcap bosh_pipeline_dashboard_agent \
-         >>$LOG_DIR/$JOB_NAME.stdout.log \
-         2>>$LOG_DIR/$JOB_NAME.stderr.log
+    while true
+    do
+    	deployments=$(curl -ks $BOSH_TARGET/deployments -u $BOSH_USER:$BOSH_PASSWORD)
+      uuid="the-uuid"
+      bosh_name="demo"
+
+      curl -v -X POST ${COLLECTOR_API}/upload -d "{\"uuid\": \"$uuid\", \"name\": \"$bosh_name\", \"deployments\": $deployments}"
+    	sleep $UPLOAD_INTERVAL
+    done
 
     ;;
 
