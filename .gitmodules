@@ -1,0 +1,3 @@
+[submodule "src/agent/src/github.com/cloudfoundry-community/stannis"]
+	path = src/agent/src/github.com/cloudfoundry-community/stannis
+	url = https://github.com/cloudfoundry-community/stannis.git
