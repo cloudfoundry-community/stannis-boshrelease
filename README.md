@@ -1,4 +1,4 @@
-# BOSH Release for bosh-pipeline-dashboard-agent
+# BOSH Release for stannis-agent
 
 ## Usage
 
@@ -6,9 +6,9 @@ To use this bosh release, first upload it to your bosh:
 
 ```
 bosh target BOSH_HOST
-git clone https://github.com/cloudfoundry-community/bosh-pipeline-dashboard-agent-boshrelease.git
-cd bosh-pipeline-dashboard-agent-boshrelease
-bosh upload release releases/bosh-pipeline-dashboard-agent-1.yml
+git clone https://github.com/cloudfoundry-community/stannis-agent-boshrelease.git
+cd stannis-agent-boshrelease
+bosh upload release releases/stannis-agent-1.yml
 ```
 
 For [bosh-lite](https://github.com/cloudfoundry/bosh-lite), you can quickly create a deployment manifest & deploy a cluster:
@@ -34,14 +34,14 @@ Create a file `my-networking.yml`:
 ``` yaml
 ---
 networks:
-  - name: bosh-pipeline-dashboard-agent1
+  - name: stannis-agent1
     type: dynamic
     cloud_properties:
       security_groups:
-        - bosh-pipeline-dashboard-agent
+        - stannis-agent
 ```
 
-Where `- bosh-pipeline-dashboard-agent` means you wish to use an existing security group called `bosh-pipeline-dashboard-agent`.
+Where `- stannis-agent` means you wish to use an existing security group called `stannis-agent`.
 
 You now suffix this file path to the `make_manifest` command:
 

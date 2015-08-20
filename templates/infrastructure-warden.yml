@@ -1,5 +1,5 @@
 meta:
-  environment: bosh-pipeline-dashboard-agent-warden
+  environment: stannis-agent-warden
 
   stemcell:
     name: bosh-warden-boshlite-ubuntu

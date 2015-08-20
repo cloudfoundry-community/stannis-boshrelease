@@ -10,9 +10,9 @@ export GOROOT=$(readlink -nf /var/vcap/packages/golang)
 export PATH=${GOROOT}/bin:$PATH
 
 mkdir -p ${BOSH_COMPILE_TARGET}/gocode/src/github.com/docker
-export GOPATH=${BOSH_COMPILE_TARGET}/agent:${BOSH_COMPILE_TARGET}/agent/src/github.com/cloudfoundry-community/bosh-pipeline-dashboard/Godeps/_workspace
+export GOPATH=${BOSH_COMPILE_TARGET}/agent:${BOSH_COMPILE_TARGET}/agent/src/github.com/cloudfoundry-community/stannis/Godeps/_workspace
 
-cd ${BOSH_COMPILE_TARGET}/agent/src/github.com/cloudfoundry-community/bosh-pipeline-dashboard
+cd ${BOSH_COMPILE_TARGET}/agent/src/github.com/cloudfoundry-community/stannis
 go install -v -a
 
 mkdir -p ${BOSH_INSTALL_TARGET}/bin

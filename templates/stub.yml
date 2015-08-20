@@ -10,5 +10,5 @@ meta:
 director_uuid: PLACEHOLDER-DIRECTOR-UUID
 
 releases:
-  - name: bosh-pipeline-dashboard-agent
+  - name: stannis-agent
     version: latest

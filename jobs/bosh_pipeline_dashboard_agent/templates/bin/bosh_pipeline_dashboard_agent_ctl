@@ -19,7 +19,7 @@ case $1 in
 
     while true
     do
-    	bosh-pipeline-dashboard agent --config $JOB_DIR/config/agent.yml
+    	stannis agent --config $JOB_DIR/config/agent.yml
     	sleep $UPLOAD_INTERVAL
     done
 

@@ -12,7 +12,7 @@ jobs:
   - name: agent
     templates:
     - name: bosh_pipeline_dashboard_agent
-      release: bosh-pipeline-dashboard-agent
+      release: stannis-agent
     instances: 1
     resource_pool: small_z1
     networks: (( merge ))
