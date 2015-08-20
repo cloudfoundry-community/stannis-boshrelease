@@ -1,6 +1,4 @@
 meta:
-  environment: stannis-warden
-
   stemcell:
     name: bosh-warden-boshlite-ubuntu
     version: latest

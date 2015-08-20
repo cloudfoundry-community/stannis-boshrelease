@@ -1,8 +1,7 @@
 meta:
-  environment: (( merge ))
   stemcell: (( merge ))
 
-name: (( meta.environment ))
+name: stannis
 
 director_uuid: (( merge ))
 

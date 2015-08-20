@@ -1,5 +1,4 @@
 meta:
-  environment: (( merge ))
   dns_root: (( merge ))
   security_groups: (( merge ))
   persistent_disk: 4096
