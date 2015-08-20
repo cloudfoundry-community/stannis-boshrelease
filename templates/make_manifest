@@ -2,7 +2,7 @@
 
 set -e
 
-template_prefix="bosh-pipeline-dashboard-agent"
+template_prefix="pipeline-agent"
 STEMCELL_OS=${STEMCELL_OS:-ubuntu}
 
 infrastructure=$1

@@ -11,7 +11,7 @@ update:
 jobs:
   - name: agent
     templates:
-    - name: bosh-pipeline-dashboard-agent
+    - name: bosh_pipeline_dashboard_agent
       release: bosh-pipeline-dashboard-agent
     instances: 1
     resource_pool: small_z1
