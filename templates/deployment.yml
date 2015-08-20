@@ -16,7 +16,7 @@ properties: (( merge ))
 
 compilation:
   workers: 6
-  network: bosh_pipeline_dashboard_agent1
+  network: agent1
   reuse_compilation_vms: true
   cloud_properties: (( merge ))
 
@@ -29,7 +29,7 @@ update:
 
 resource_pools:
   - name: small_z1
-    network: bosh_pipeline_dashboard_agent1
+    network: agent1
     size: (( auto ))
     stemcell: (( meta.stemcell ))
     cloud_properties: (( merge ))

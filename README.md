@@ -1,14 +1,16 @@
-# BOSH Release for stannis-agent
+BOSH Release for Stannis
+========================
 
-## Usage
+Usage
+-----
 
 To use this bosh release, first upload it to your bosh:
 
 ```
 bosh target BOSH_HOST
-git clone https://github.com/cloudfoundry-community/stannis-agent-boshrelease.git
-cd stannis-agent-boshrelease
-bosh upload release releases/stannis-agent-1.yml
+git clone https://github.com/cloudfoundry-community/stannis-boshrelease.git
+cd stannis-boshrelease
+bosh upload release releases/stannis-1.yml
 ```
 
 For [bosh-lite](https://github.com/cloudfoundry/bosh-lite), you can quickly create a deployment manifest & deploy a cluster:
@@ -31,17 +33,17 @@ For AWS & Openstack, the default deployment assumes there is a `default` securit
 
 Create a file `my-networking.yml`:
 
-``` yaml
+```yaml
 ---
 networks:
-  - name: stannis-agent1
+  - name: stannis1
     type: dynamic
     cloud_properties:
       security_groups:
-        - stannis-agent
+        - stannis
 ```
 
-Where `- stannis-agent` means you wish to use an existing security group called `stannis-agent`.
+Where `- stannis` means you wish to use an existing security group called `stannis`.
 
 You now suffix this file path to the `make_manifest` command:
 
@@ -67,7 +69,6 @@ bosh create release --final
 ```
 
 By default the version number will be bumped to the next major number. You can specify alternate versions:
-
 
 ```
 bosh create release --final --version 2.1

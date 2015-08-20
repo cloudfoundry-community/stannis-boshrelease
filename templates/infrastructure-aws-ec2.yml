@@ -11,7 +11,7 @@ meta:
 jobs:
   - name: agent
     networks:
-      - name: bosh_pipeline_dashboard_agent1
+      - name: agent1
 
 compilation:
   cloud_properties:
@@ -26,7 +26,7 @@ networks:
   - name: floating
     type: vip
     cloud_properties: {}
-  - name: bosh_pipeline_dashboard_agent1
+  - name: agent1
     type: dynamic
     cloud_properties:
       security_groups: (( meta.security_groups ))

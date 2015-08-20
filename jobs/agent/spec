@@ -1,9 +1,9 @@
 ---
-name: bosh_pipeline_dashboard_agent
+name: agent
 packages: [agent]
 templates:
   bin/monit_debugger: bin/monit_debugger
-  bin/bosh_pipeline_dashboard_agent_ctl: bin/bosh_pipeline_dashboard_agent_ctl
+  bin/agent_ctl: bin/agent_ctl
   config/agent.yml.erb: config/agent.yml
   data/properties.sh.erb: data/properties.sh
   helpers/ctl_setup.sh: helpers/ctl_setup.sh

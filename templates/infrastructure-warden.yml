@@ -1,5 +1,5 @@
 meta:
-  environment: stannis-agent-warden
+  environment: stannis-warden
 
   stemcell:
     name: bosh-warden-boshlite-ubuntu
@@ -14,7 +14,7 @@ update:
 jobs:
   - name: agent
     networks:
-      - name: bosh_pipeline_dashboard_agent1
+      - name: agent1
 
 compilation:
   cloud_properties:
@@ -26,7 +26,7 @@ resource_pools:
       name: random
 
 networks:
-- name: bosh_pipeline_dashboard_agent1
+- name: agent1
   # Assumes up to 5 VMs, including 1 static and 4 dynamic.
   # Plus 5 (double the size) unused IPs, due to BOSH bug/quirk.
   subnets:
