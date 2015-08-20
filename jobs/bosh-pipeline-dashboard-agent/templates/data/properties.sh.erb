@@ -15,9 +15,4 @@ export DNS_ROOT=<%= spec.dns_domain_name %>
 # $BIND_ADDR is the IP of the first network
 export BIND_ADDR=<%= spec.networks.send(spec.networks.methods(false).first).ip %>
 
-BOSH_TARGET=<%= p("bosh_uploader.bosh_target") %>
-BOSH_USER=<%= p("bosh_uploader.bosh_user") %>
-BOSH_PASSWORD=<%= p("bosh_uploader.bosh_password") %>
 UPLOAD_INTERVAL=<%= p("bosh_uploader.interval") %>
-
-COLLECTOR_API=<%= p("bosh_uploader.collector_api") %>

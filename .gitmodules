@@ -1,0 +1,3 @@
+[submodule "src/agent/src/github.com/cloudfoundry-community/bosh-pipeline-dashboard"]
+	path = src/agent/src/github.com/cloudfoundry-community/bosh-pipeline-dashboard
+	url = https://github.com/cloudfoundry-community/bosh-pipeline-dashboard.git

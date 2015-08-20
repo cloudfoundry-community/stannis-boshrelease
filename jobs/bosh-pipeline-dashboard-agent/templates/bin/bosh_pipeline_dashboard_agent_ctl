@@ -19,11 +19,7 @@ case $1 in
 
     while true
     do
-    	deployments=$(curl -ks $BOSH_TARGET/deployments -u $BOSH_USER:$BOSH_PASSWORD)
-      uuid="the-uuid"
-      bosh_name="demo"
-
-      curl -v -X POST ${COLLECTOR_API}/upload -d "{\"uuid\": \"$uuid\", \"name\": \"$bosh_name\", \"deployments\": $deployments}"
+    	bosh-pipeline-dashboard agent --config $JOB_DIR/config/agent.yml
     	sleep $UPLOAD_INTERVAL
     done
 

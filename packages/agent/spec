@@ -1,0 +1,6 @@
+---
+name: agent
+dependencies:
+- golang
+files:
+- agent/**/*
