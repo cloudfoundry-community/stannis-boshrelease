@@ -1,54 +1,42 @@
-BOSH Release for Stannis
+BOSH release for Stannis
 ========================
+
+Once you have multiple BOSH, multiple environments, multiple data centers it can quickly become difficult to visualise "what is running? where is it running?"
+
+![deployments](http://cl.ly/image/1d0F153a271D/Deployments.png)
+
+This BOSH release deploys an agent that polls a BOSH for its list of deployments, and relays them to a central Stannis webserver/dashboard.
 
 Usage
 -----
 
-To use this bosh release, first upload it to your bosh:
+To use this bosh release, first upload it to your BOSH:
 
 ```
-bosh target BOSH_HOST
-git clone https://github.com/cloudfoundry-community/stannis-boshrelease.git
-cd stannis-boshrelease
-bosh upload release releases/stannis-1.yml
+bosh upload release https://bosh.io/d/github.com/cloudfoundry-community/stannis-boshrelease
+```
+
+Next, create a `my-bosh.yml` stub that documents that connection credentials to your BOSH, and the details of your Stannis webserver:
+
+```yaml
+---
+properties:
+  bosh_uploader:
+    bosh_target: https://50.18.92.50:25555
+    bosh_username: admin
+    bosh_password: crazypassword
+
+    collector_api: http://our-stannis.cfapps.io
+    collector_username: stannis
+    collector_password: crazypassword
 ```
 
 For [bosh-lite](https://github.com/cloudfoundry/bosh-lite), you can quickly create a deployment manifest & deploy a cluster:
 
 ```
-templates/make_manifest warden
-bosh -n deploy
-```
-
-For AWS EC2, create a single VM:
-
-```
-templates/make_manifest aws-ec2
-bosh -n deploy
-```
-
-### Override security groups
-
-For AWS & Openstack, the default deployment assumes there is a `default` security group. If you wish to use a different security group(s) then you can pass in additional configuration when running `make_manifest` above.
-
-Create a file `my-networking.yml`:
-
-```yaml
----
-networks:
-  - name: stannis1
-    type: dynamic
-    cloud_properties:
-      security_groups:
-        - stannis
-```
-
-Where `- stannis` means you wish to use an existing security group called `stannis`.
-
-You now suffix this file path to the `make_manifest` command:
-
-```
-templates/make_manifest openstack-nova my-networking.yml
+git clone https://github.com/cloudfoundry-community/stannis-boshrelease.git
+cd stannis-boshrelease
+templates/make_manifest warden my-bosh.yml
 bosh -n deploy
 ```
 
@@ -57,21 +45,5 @@ bosh -n deploy
 As a developer of this release, create new releases and upload them:
 
 ```
-bosh create release --force && bosh -n upload release
+bosh create release --force && bosh upload release && bosh -n deploy
 ```
-
-### Final releases
-
-To share final releases:
-
-```
-bosh create release --final
-```
-
-By default the version number will be bumped to the next major number. You can specify alternate versions:
-
-```
-bosh create release --final --version 2.1
-```
-
-After the first release you need to contact [Dmitriy Kalinin](mailto://dkalinin@pivotal.io) to request your project is added to https://bosh.io/releases (as mentioned in README above).
