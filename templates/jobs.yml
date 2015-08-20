@@ -9,29 +9,19 @@ update:
   serial: false
 
 jobs:
-  - name: bosh_pipeline_dashboard_agent_leader_z1
+  - name: agent
     templates:
     - name: bosh-pipeline-dashboard-agent
       release: bosh-pipeline-dashboard-agent
-    instances: 0
+    instances: 1
     resource_pool: small_z1
     networks: (( merge ))
-    persistent_disk: 0
-    properties: {}
-  - name: bosh_pipeline_dashboard_agent_z1
-    templates:
-    - name: bosh-pipeline-dashboard-agent
-      release: bosh-pipeline-dashboard-agent
-    instances: 0
-    resource_pool: small_z1
-    networks: (( merge ))
-    persistent_disk: 0
-    update:
-      canaries: 10
-    properties:
-      bosh_pipeline_dashboard_agent:
-        leader_address: (( merge ))
 
 networks: (( merge ))
 
-properties: {}
+properties:
+  bosh_uploader:
+    bosh_target: (( merge ))
+    bosh_username: (( merge ))
+    bosh_password: (( merge ))
+    collector_api: (( merge ))

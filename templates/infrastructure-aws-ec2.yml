@@ -9,19 +9,9 @@ meta:
     version: latest
 
 jobs:
-  - name: bosh_pipeline_dashboard_agent_leader_z1
-    instances: 1
+  - name: agent
     networks:
       - name: bosh_pipeline_dashboard_agent1
-    persistent_disk: (( meta.persistent_disk ))
-  - name: bosh_pipeline_dashboard_agent_z1
-    instances: 2
-    networks:
-      - name: bosh_pipeline_dashboard_agent1
-    persistent_disk: (( meta.persistent_disk ))
-    properties:
-      bosh_pipeline_dashboard_agent:
-        leader_address: (( "0.bosh-pipeline-dashboard-agent-leader-z1.bosh-pipeline-dashboard-agent1." meta.environment "." meta.dns_root ))
 
 compilation:
   cloud_properties:
