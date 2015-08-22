@@ -24,4 +24,6 @@ properties:
     bosh_target: (( merge ))
     bosh_username: (( merge ))
     bosh_password: (( merge ))
-    collector_api: (( merge ))
+    webserver_api: (( merge ))
+    webserver_username: (( merge ))
+    webserver_password: (( merge ))
