@@ -1,0 +1,26 @@
+---
+packages:
+- name: agent
+  version: 9ba70891e9caf279e2f512b5bc97c3625bc19066
+  fingerprint: 9ba70891e9caf279e2f512b5bc97c3625bc19066
+  sha1: 142489d8c857315e602317607109bb13e70d3e01
+  dependencies:
+  - golang
+- name: golang
+  version: 6effe697df6912a3f44070c5443946bdfed82623
+  fingerprint: 6effe697df6912a3f44070c5443946bdfed82623
+  sha1: 08e274a48efaddd87d12e4d30a79e7351f7ea27b
+  dependencies: []
+jobs:
+- name: agent
+  version: 92b7d4e88479c1a52dda64200b7427d5ec338407
+  fingerprint: 92b7d4e88479c1a52dda64200b7427d5ec338407
+  sha1: 89eb8e45c7ec8ef2ed86128d291b345d1674a3e8
+license:
+  version: 8da6eb3df1dce64b78610e7cbaf4245d66e88f1c
+  fingerprint: 8da6eb3df1dce64b78610e7cbaf4245d66e88f1c
+  sha1: dae2882f60d688e8cda18d7a5ff76ef1bec169c7
+commit_hash: 73e82ae6
+uncommitted_changes: true
+name: stannis
+version: '4'
