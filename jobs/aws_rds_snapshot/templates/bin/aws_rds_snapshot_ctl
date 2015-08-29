@@ -17,9 +17,18 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    exec chpst -u vcap:vcap aws_rds_snapshot \
-         >>$LOG_DIR/$JOB_NAME.stdout.log \
-         2>>$LOG_DIR/$JOB_NAME.stderr.log
+    cd /var/vcap/packages/aws_rds_snapshot_stannisplugin
+
+    while true
+    do
+      exec chpst -u vcap:vcap \
+        bundle exec aws_rds_snapshot_stannisplugin \
+          --config $JOB_DIR/config/deployments.yml \
+           >>$LOG_DIR/$JOB_NAME.stdout.log \
+           2>>$LOG_DIR/$JOB_NAME.stderr.log
+
+      sleep $UPLOAD_INTERVAL
+    done
 
     ;;
 

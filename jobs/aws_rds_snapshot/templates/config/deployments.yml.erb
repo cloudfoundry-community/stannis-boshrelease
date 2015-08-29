@@ -1,0 +1,9 @@
+---
+aws:
+  aws_access_key_id: <%= p("aws.aws_access_key_id") %>
+  aws_secret_access_key: <%= p("aws.aws_secret_access_key") %>
+stannis:
+  uri: <%= p("bosh_uploader.webserver_api") %>
+  username: <%= p("bosh_uploader.webserver_username") %>
+  password: <%= p("bosh_uploader.webserver_password") %>
+deployments: <%= p("aws_rds_snapshot.deployments").to_json %>

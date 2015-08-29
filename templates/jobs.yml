@@ -29,3 +29,5 @@ properties:
     webserver_api: (( merge ))
     webserver_username: (( merge ))
     webserver_password: (( merge ))
+  aws: ~
+  aws_rds_snapshot: ~
