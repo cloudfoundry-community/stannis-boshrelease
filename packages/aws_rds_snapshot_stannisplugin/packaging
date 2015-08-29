@@ -1,0 +1,9 @@
+set -e -x
+
+cp -a plugins/aws_rds_snapshot_stannisplugin/* ${BOSH_INSTALL_TARGET}
+
+cd ${BOSH_INSTALL_TARGET}
+
+bundle_cmd=/var/vcap/packages/ruby/bin/bundle
+
+$bundle_cmd install --local --deployment --without development test

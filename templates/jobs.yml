@@ -13,6 +13,8 @@ jobs:
     templates:
     - name: agent
       release: stannis
+    - name: aws_rds_snapshot
+      release: stannis
     instances: 1
     resource_pool: small_z1
     networks: (( merge ))
