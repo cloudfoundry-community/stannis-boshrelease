@@ -13,6 +13,8 @@ jobs:
     templates:
     - name: agent
       release: stannis
+    - name: aws_rds_snapshot
+      release: stannis
     instances: 1
     resource_pool: small_z1
     networks: (( merge ))
@@ -27,3 +29,5 @@ properties:
     webserver_api: (( merge ))
     webserver_username: (( merge ))
     webserver_password: (( merge ))
+  aws: ~
+  aws_rds_snapshot: ~

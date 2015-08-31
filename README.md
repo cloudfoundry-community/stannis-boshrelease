@@ -40,7 +40,32 @@ templates/make_manifest warden my-bosh.yml
 bosh -n deploy
 ```
 
-### Development
+### Monitor AWS RDS snapshots
+
+If your deployments are known to use AWS RDS servers then there is a Stannis plugin that can monitor the age of last RDS snapshots.
+
+Add the following to your deployment manifest:
+
+```yaml
+# demo ge-predix
+aws:
+  aws_access_key_id: KEY
+  aws_secret_access_key: SECRET
+
+aws_rds_snapshot:
+  deployments:
+    - bosh_really_uuid: BOSHIP-BOSHUUID
+      deployment_name: prod-cf
+      label: backups-rds
+      rds:
+      - instance_id: ccdb-prod
+      - instance_id: uaadb-prod
+```
+
+Note: `instance_id` must be converted to use hyphens instead of underscores if your RDS name used underscores.
+
+Development
+-----------
 
 As a developer of this release, create new releases and upload them:
 

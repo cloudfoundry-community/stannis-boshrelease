@@ -4,7 +4,7 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 # Setup env vars and folders for the webapp_ctl script
-source /var/vcap/jobs/agent/helpers/ctl_setup.sh 'agent'
+source /var/vcap/jobs/aws_rds_snapshot/helpers/ctl_setup.sh 'aws_rds_snapshot'
 
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
@@ -17,14 +17,19 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
+    cd /var/vcap/packages/aws_rds_snapshot_stannisplugin
+
     while true
     do
-      echo Uploading stannis information >>$LOG_DIR/$JOB_NAME.stdout.log
+      echo Loading statuses >>$LOG_DIR/$JOB_NAME.stdout.log
       chpst -u vcap:vcap \
-        stannis agent --config $JOB_DIR/config/agent.yml
+        bundle exec aws_rds_snapshot_stannisplugin \
+          --config $JOB_DIR/config/deployments.yml \
+           >>$LOG_DIR/$JOB_NAME.stdout.log \
+           2>>$LOG_DIR/$JOB_NAME.stderr.log
 
       echo Now sleeping $UPLOAD_INTERVAL >>$LOG_DIR/$JOB_NAME.stdout.log
-    	sleep $UPLOAD_INTERVAL
+      sleep $UPLOAD_INTERVAL
     done
 
     ;;
@@ -34,7 +39,7 @@ case $1 in
 
     ;;
   *)
-    echo "Usage: agent_ctl {start|stop}"
+    echo "Usage: aws_rds_snapshot_ctl {start|stop}"
 
     ;;
 
