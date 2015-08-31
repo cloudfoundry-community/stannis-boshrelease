@@ -19,7 +19,11 @@ case $1 in
 
     while true
     do
-    	stannis agent --config $JOB_DIR/config/agent.yml
+      echo Uploading stannis information >>$LOG_DIR/$JOB_NAME.stdout.log
+      chpst -u vcap:vcap \
+        stannis agent --config $JOB_DIR/config/agent.yml
+
+      echo Now sleeping $UPLOAD_INTERVAL >>$LOG_DIR/$JOB_NAME.stdout.log
     	sleep $UPLOAD_INTERVAL
     done
 

@@ -21,12 +21,14 @@ case $1 in
 
     while true
     do
-      exec chpst -u vcap:vcap \
+      echo Loading statuses >>$LOG_DIR/$JOB_NAME.stdout.log
+      chpst -u vcap:vcap \
         bundle exec aws_rds_snapshot_stannisplugin \
           --config $JOB_DIR/config/deployments.yml \
            >>$LOG_DIR/$JOB_NAME.stdout.log \
            2>>$LOG_DIR/$JOB_NAME.stderr.log
 
+      echo Now sleeping $UPLOAD_INTERVAL >>$LOG_DIR/$JOB_NAME.stdout.log
       sleep $UPLOAD_INTERVAL
     done
 
