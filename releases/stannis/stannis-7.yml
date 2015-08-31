@@ -1,0 +1,41 @@
+---
+packages:
+- name: agent
+  version: 7ec3967069a974d52feb5c990736363081ec64f8
+  fingerprint: 7ec3967069a974d52feb5c990736363081ec64f8
+  sha1: 66b5c32921623a00f0634f01d91c7099f0493a0e
+  dependencies:
+  - golang
+- name: aws_rds_snapshot_stannisplugin
+  version: da410bf712586d6c292467c54e3ea1411b1c5181
+  fingerprint: da410bf712586d6c292467c54e3ea1411b1c5181
+  sha1: 8313395dfcea3d3a028e2e6ecce1aec3233c7b11
+  dependencies:
+  - ruby
+- name: golang
+  version: 6effe697df6912a3f44070c5443946bdfed82623
+  fingerprint: 6effe697df6912a3f44070c5443946bdfed82623
+  sha1: 08e274a48efaddd87d12e4d30a79e7351f7ea27b
+  dependencies: []
+- name: ruby
+  version: 3806993d2569cfc8327d742f1938fe876ac0b50a
+  fingerprint: 3806993d2569cfc8327d742f1938fe876ac0b50a
+  sha1: a5b6313d728894b1c5b4cbe474b3c763d6e02d42
+  dependencies: []
+jobs:
+- name: agent
+  version: e57ae51394a28cda3e4a9c679468a42d35e1c140
+  fingerprint: e57ae51394a28cda3e4a9c679468a42d35e1c140
+  sha1: 4c47c6b281f2a15319ead5af591ec7f91c552ffd
+- name: aws_rds_snapshot
+  version: 26cdfdb8278d646a31a3b9040f868b11eb2ce3c9
+  fingerprint: 26cdfdb8278d646a31a3b9040f868b11eb2ce3c9
+  sha1: c62eda45fbb9df90a67ee58369aea60d9fbe78bb
+license:
+  version: 8da6eb3df1dce64b78610e7cbaf4245d66e88f1c
+  fingerprint: 8da6eb3df1dce64b78610e7cbaf4245d66e88f1c
+  sha1: dae2882f60d688e8cda18d7a5ff76ef1bec169c7
+commit_hash: 295e7ed1
+uncommitted_changes: true
+name: stannis
+version: '7'
