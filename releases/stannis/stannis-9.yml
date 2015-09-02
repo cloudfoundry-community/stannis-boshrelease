@@ -1,0 +1,41 @@
+---
+packages:
+- name: agent
+  version: e86027355ffe5a3b1d6247a3e516d737249e4ee5
+  fingerprint: e86027355ffe5a3b1d6247a3e516d737249e4ee5
+  sha1: 60d74df4c489d6212cacd5a87af31945b09e4a55
+  dependencies:
+  - golang
+- name: aws_snapshots_stannisplugin
+  version: 7afda209e4043d985acc8b3f05b10f523788b1b4
+  fingerprint: 7afda209e4043d985acc8b3f05b10f523788b1b4
+  sha1: c5892d7ced1ed8b7eac44c185f6fb4d43cf459ec
+  dependencies:
+  - ruby
+- name: golang
+  version: 6effe697df6912a3f44070c5443946bdfed82623
+  fingerprint: 6effe697df6912a3f44070c5443946bdfed82623
+  sha1: 08e274a48efaddd87d12e4d30a79e7351f7ea27b
+  dependencies: []
+- name: ruby
+  version: 3806993d2569cfc8327d742f1938fe876ac0b50a
+  fingerprint: 3806993d2569cfc8327d742f1938fe876ac0b50a
+  sha1: a5b6313d728894b1c5b4cbe474b3c763d6e02d42
+  dependencies: []
+jobs:
+- name: agent
+  version: e57ae51394a28cda3e4a9c679468a42d35e1c140
+  fingerprint: e57ae51394a28cda3e4a9c679468a42d35e1c140
+  sha1: 4c47c6b281f2a15319ead5af591ec7f91c552ffd
+- name: aws_snapshots
+  version: 1db7527e477207fc9cf2acb28b178433a390a956
+  fingerprint: 1db7527e477207fc9cf2acb28b178433a390a956
+  sha1: 13718ef282faae0d3061e7755c0516fa2d33c9a6
+license:
+  version: 8da6eb3df1dce64b78610e7cbaf4245d66e88f1c
+  fingerprint: 8da6eb3df1dce64b78610e7cbaf4245d66e88f1c
+  sha1: dae2882f60d688e8cda18d7a5ff76ef1bec169c7
+commit_hash: 4e892d23
+uncommitted_changes: true
+name: stannis
+version: '9'
