@@ -1,0 +1,4 @@
+---
+name: aws_snapshots_stannisplugin
+dependencies: [ruby]
+files: [plugins/aws_snapshots_stannisplugin/**/*]

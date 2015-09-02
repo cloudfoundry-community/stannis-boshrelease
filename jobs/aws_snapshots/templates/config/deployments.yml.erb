@@ -1,4 +1,4 @@
-<% if_p("aws_rds_snapshot.deployments") do %>
+<% if_p("aws_snapshots.deployments") do %>
 ---
 aws:
   aws_access_key_id: <%= p("aws.aws_access_key_id") %>
@@ -8,5 +8,5 @@ stannis:
   uri: <%= p("bosh_uploader.webserver_api") %>
   username: <%= p("bosh_uploader.webserver_username") %>
   password: <%= p("bosh_uploader.webserver_password") %>
-deployments: <%= p("aws_rds_snapshot.deployments").to_json %>
+deployments: <%= p("aws_snapshots.deployments").to_json %>
 <% end %>

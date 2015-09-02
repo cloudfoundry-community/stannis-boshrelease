@@ -4,7 +4,7 @@ set -e # exit immediately if a simple command exits with a non-zero status
 set -u # report the usage of uninitialized variables
 
 # Setup env vars and folders for the webapp_ctl script
-source /var/vcap/jobs/aws_rds_snapshot/helpers/ctl_setup.sh 'aws_rds_snapshot'
+source /var/vcap/jobs/aws_snapshots/helpers/ctl_setup.sh 'aws_snapshots'
 
 export PORT=${PORT:-5000}
 export LANG=en_US.UTF-8
@@ -17,7 +17,7 @@ case $1 in
     # store pid in $PIDFILE
     echo $$ > $PIDFILE
 
-    cd /var/vcap/packages/aws_rds_snapshot_stannisplugin
+    cd /var/vcap/packages/aws_snapshots_stannisplugin
 
     while true
     do
@@ -39,7 +39,7 @@ case $1 in
 
     ;;
   *)
-    echo "Usage: aws_rds_snapshot_ctl {start|stop}"
+    echo "Usage: aws_snapshots_ctl {start|stop}"
 
     ;;
 

@@ -52,7 +52,7 @@ aws:
   aws_access_key_id: KEY
   aws_secret_access_key: SECRET
 
-aws_rds_snapshot:
+aws_snapshots:
   deployments:
     - bosh_really_uuid: BOSHIP-BOSHUUID
       deployment_name: prod-cf

@@ -1,0 +1,7 @@
+<% if_p("aws_snapshots.deployments") do %>
+check process aws_snapshots
+  with pidfile /var/vcap/sys/run/aws_snapshots/aws_snapshots.pid
+  start program "/var/vcap/jobs/aws_snapshots/bin/monit_debugger aws_snapshots_ctl '/var/vcap/jobs/aws_snapshots/bin/aws_snapshots_ctl start'"
+  stop program "/var/vcap/jobs/aws_snapshots/bin/monit_debugger aws_snapshots_ctl '/var/vcap/jobs/aws_snapshots/bin/aws_snapshots_ctl stop'"
+  group vcap
+<% end %>

@@ -1,10 +1,10 @@
 ---
-name: aws_rds_snapshot
+name: aws_snapshots
 packages:
 - ruby
-- aws_rds_snapshot_stannisplugin
+- aws_snapshots_stannisplugin
 templates:
-  bin/aws_rds_snapshot_ctl: bin/aws_rds_snapshot_ctl
+  bin/aws_snapshots_ctl: bin/aws_snapshots_ctl
   bin/monit_debugger: bin/monit_debugger
   config/deployments.yml.erb: config/deployments.yml
   data/properties.sh.erb: data/properties.sh
@@ -30,5 +30,5 @@ properties:
     description: AWS Region
     default: us-east-1
 
-  aws_rds_snapshot.deployments:
+  aws_snapshots.deployments:
     description: The deployments and their RDS snapshots to watch
