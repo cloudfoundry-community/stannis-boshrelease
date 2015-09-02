@@ -23,7 +23,7 @@ case $1 in
     do
       echo Loading statuses >>$LOG_DIR/$JOB_NAME.stdout.log
       chpst -u vcap:vcap \
-        bundle exec aws_rds_snapshot_stannisplugin \
+        bundle exec aws_snapshots_stannisplugin \
           --config $JOB_DIR/config/deployments.yml \
            >>$LOG_DIR/$JOB_NAME.stdout.log \
            2>>$LOG_DIR/$JOB_NAME.stderr.log
