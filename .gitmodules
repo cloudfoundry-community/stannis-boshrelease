@@ -1,3 +1,6 @@
 [submodule "src/agent/src/github.com/cloudfoundry-community/stannis"]
 	path = src/agent/src/github.com/cloudfoundry-community/stannis
 	url = https://github.com/cloudfoundry-community/stannis.git
+[submodule "src/plugins/aws_snapshots_stannisplugin"]
+	path = src/plugins/aws_snapshots_stannisplugin
+	url = https://github.com/cloudfoundry-community/aws_snapshots_stannisplugin.git
