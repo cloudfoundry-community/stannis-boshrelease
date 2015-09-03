@@ -1,0 +1,7 @@
+<% if_p("cf_usage.deployments") do %>
+check process cf_usage
+  with pidfile /var/vcap/sys/run/cf_usage/cf_usage.pid
+  start program "/var/vcap/jobs/cf_usage/bin/monit_debugger cf_usage_ctl '/var/vcap/jobs/cf_usage/bin/cf_usage_ctl start'"
+  stop program "/var/vcap/jobs/cf_usage/bin/monit_debugger cf_usage_ctl '/var/vcap/jobs/cf_usage/bin/cf_usage_ctl stop'"
+  group vcap
+<% end %>

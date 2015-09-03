@@ -1,0 +1,8 @@
+<% if_p("cf_usage.deployments") do %>
+---
+stannis:
+  uri: <%= p("bosh_uploader.webserver_api") %>
+  username: <%= p("bosh_uploader.webserver_username") %>
+  password: <%= p("bosh_uploader.webserver_password") %>
+deployments: <%= p("cf_usage.deployments").to_json %>
+<% end %>

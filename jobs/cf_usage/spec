@@ -1,10 +1,10 @@
 ---
-name: aws_snapshots
+name: cf_usage
 packages:
 - ruby
-- aws_snapshots_stannisplugin
+- cf_usage_stannisplugin
 templates:
-  bin/aws_snapshots_ctl: bin/aws_snapshots_ctl
+  bin/cf_usage_ctl: bin/cf_usage_ctl
   bin/monit_debugger: bin/monit_debugger
   config/deployments.yml.erb: config/deployments.yml
   data/properties.sh.erb: data/properties.sh
@@ -22,13 +22,5 @@ properties:
   bosh_uploader.webserver_password:
     description: The password for authentication to BOSH
 
-  aws.aws_access_key_id:
-    description: AWS Key
-  aws.aws_secret_access_key:
-    description: AWS Secret
-  aws.region:
-    description: AWS Region
-    default: us-east-1
-
-  aws_snapshots.deployments:
-    description: The deployments and their snapshots to watch
+  cf_usage.deployments:
+    description: The CF deployments to fetch usage data

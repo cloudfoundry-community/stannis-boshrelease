@@ -1,0 +1,4 @@
+---
+name: cf_usage_stannisplugin
+dependencies: [ruby]
+files: [plugins/cf_usage_stannisplugin/**/*]
