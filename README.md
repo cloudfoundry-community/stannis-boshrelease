@@ -26,9 +26,9 @@ properties:
     bosh_username: admin
     bosh_password: crazypassword
 
-    collector_api: http://our-stannis.cfapps.io
-    collector_username: stannis
-    collector_password: crazypassword
+    webserver_api: http://our-stannis.cfapps.io
+    webserver_username: stannis
+    webserver_password: crazypassword
 ```
 
 For [bosh-lite](https://github.com/cloudfoundry/bosh-lite), you can quickly create a deployment manifest & deploy a cluster:
