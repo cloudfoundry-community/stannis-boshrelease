@@ -12,7 +12,4 @@ export JOB_FULL="$NAME/$JOB_INDEX"
 export DEPLOYMENT_NAME=<%= spec.deployment %>
 export DNS_ROOT=<%= spec.dns_domain_name %>
 
-# $BIND_ADDR is the IP of the first network
-export BIND_ADDR=<%= spec.networks.send(spec.networks.methods(false).first).ip %>
-
-UPLOAD_INTERVAL=<%= p("bosh_uploader.interval") %>
+export UPLOAD_INTERVAL=<%= p("bosh_uploader.interval") %>
