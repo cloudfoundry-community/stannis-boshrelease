@@ -1,6 +1,3 @@
-meta:
-  environment: ~
-
 update:
   canaries: 1
   max_in_flight: 50
@@ -8,29 +5,26 @@ update:
   update_watch_time: 1000-30000
   serial: false
 
-jobs:
+instance_groups:
   - name: agent
-    templates:
-    - name: agent
-      release: stannis
-    - name: aws_snapshots
-      release: stannis
-    - name: cf_usage
-      release: stannis
+    jobs:
+    - {name: agent, release: stannis}
+    - {name: aws_snapshots, release: stannis}
+    - {name: cf_usage, release: stannis}
     instances: 1
-    resource_pool: small_z1
-    networks: (( merge ))
+    networks: (( param "define agent networks" ))
+    resource_pool: (( param "define agent resource pool" ))
 
-networks: (( merge ))
+networks: (( param "Please configure the global network definitions for this Deployment" ))
 
 properties:
   bosh_uploader:
-    bosh_target: (( merge ))
-    bosh_username: (( merge ))
-    bosh_password: (( merge ))
-    webserver_api: (( merge ))
-    webserver_username: (( merge ))
-    webserver_password: (( merge ))
+    bosh_target: (( param "required" ))
+    bosh_username: (( param "required" ))
+    bosh_password: (( param "required" ))
+    webserver_api: (( param "required" ))
+    webserver_username: (( param "required" ))
+    webserver_password: (( param "required" ))
   aws: ~
   aws_snapshots: ~
   cf_usage: ~

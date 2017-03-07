@@ -1,34 +1,31 @@
+---
 meta:
-  stemcell: (( merge ))
+  environment: (( param "Please specify your environment" ))
+  stemcell: (( param "Please configure a BOSH stemcell to use for your deployment" ))
 
-name: stannis
+name: (( grab meta.environment ))
 
-director_uuid: (( merge ))
+director_uuid: (( param "Please set the UUID of your BOSH Directory" ))
 
-releases: (( merge ))
+releases: (( param "Please list the BOSH releases to use for this deployment" ))
 
-networks: (( merge ))
-
-jobs: (( merge ))
-
-properties: (( merge ))
+instance_groups: (( param "Please configure the constituent instance groups for this Deployment" ))
 
 compilation:
   workers: 6
-  network: agent1
+  network: stannis1
   reuse_compilation_vms: true
-  cloud_properties: (( merge ))
+  cloud_properties: (( param "Please configure the Cloud Properties for compilation VMs" ))
 
 update:
   canaries: 1
-  max_in_flight: 1
-  canary_watch_time: 30000-60000
-  update_watch_time: 5000-60000
-  serial: false
+  max_in_flight: 50
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+  serial: true
 
 resource_pools:
   - name: small_z1
-    network: agent1
-    size: (( auto ))
-    stemcell: (( meta.stemcell ))
-    cloud_properties: (( merge ))
+    network: etcd_cf_service_broker1
+    stemcell: (( grab meta.stemcell ))
+    cloud_properties: (( param "Please configure the Cloud Properties for your Resource Pool" ))

@@ -1,4 +1,7 @@
+---
 meta:
+  environment: etcd-cf-service-broker-warden
+
   stemcell:
     name: bosh-warden-boshlite-ubuntu-trusty-go_agent
     version: latest
@@ -9,10 +12,12 @@ update:
   canary_watch_time: 1000-30000
   update_watch_time: 1000-30000
 
-jobs:
+instance_groups:
   - name: agent
+    resource_pool: small_z1
     networks:
-      - name: agent1
+      - name: stannis1
+        static_ips: (( static_ips(4,5,6) ))
 
 compilation:
   cloud_properties:
@@ -24,71 +29,11 @@ resource_pools:
       name: random
 
 networks:
-- name: agent1
-  # Assumes up to 5 VMs, including 1 static and 4 dynamic.
-  # Plus 5 (double the size) unused IPs, due to BOSH bug/quirk.
+- name: stannis1
+  type: manual
   subnets:
-  - cloud_properties:
-      name: random
-    range: 10.244.25.0/30
-    reserved:
-    - 10.244.25.1
+  - range: 10.244.55.0/24
+    name: stannis1
+    gateway: 10.244.55.1
     static:
-    - 10.244.25.2
-
-  - cloud_properties:
-      name: random
-    range: 10.244.25.4/30
-    reserved:
-    - 10.244.25.5
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.8/30
-    reserved:
-    - 10.244.25.9
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.12/30
-    reserved:
-    - 10.244.25.13
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.16/30
-    reserved:
-    - 10.244.25.17
-    static: []
-
-  # Bonus double-sized network required due to BOSH oddity
-  - cloud_properties:
-      name: random
-    range: 10.244.25.20/30
-    reserved:
-    - 10.244.25.21
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.24/30
-    reserved:
-    - 10.244.25.25
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.28/30
-    reserved:
-    - 10.244.25.29
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.32/30
-    reserved:
-    - 10.244.25.33
-    static: []
-  - cloud_properties:
-      name: random
-    range: 10.244.25.36/30
-    reserved:
-    - 10.244.25.37
-    static: []
+      - 10.244.55.2 - 10.244.55.60
