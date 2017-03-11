@@ -1,0 +1,26 @@
+---
+platform: linux
+image_resource:
+  type: docker-image
+  source: {repository: dingotiles/dingo-postgresql-release-pipeline}
+
+inputs:
+- name: boshrelease-ci
+- name: etcd
+- name: simple-remote-syslog
+- name: candidate-release
+
+outputs:
+- name: manifest
+
+params:
+  deployment_name:
+  bosh_target:
+  bosh_username: admin
+  bosh_password: admin
+  webserver_api:
+  webserver_username:
+  webserver_password:
+
+run:
+  path: boshrelease-ci/ci/tasks/create-manifest.sh
