@@ -40,6 +40,9 @@ cat > tmp/bosh.yml <<EOF
 ---
 properties:
   bosh_uploader:
+    bosh_target: ${bosh_target}
+    bosh_username: ${bosh_username}
+    bosh_password: ${bosh_password}
     webserver_api: ${webserver_api:?required}
     webserver_username: ${webserver_username:?required}
     webserver_password: ${webserver_password:?required}
