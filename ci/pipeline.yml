@@ -160,7 +160,7 @@ resources:
   type: semver
   source:
     driver: git
-    initial_version: 0.0.1
+    initial_version: 12.0.0
     uri: git@github.com:cloudfoundry-community/stannis-boshrelease.git
     branch: version
     file: version
