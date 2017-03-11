@@ -7,6 +7,8 @@ Once you have multiple BOSH, multiple environments, multiple data centers it can
 
 This BOSH release deploys an agent that polls a BOSH for its list of deployments, and relays them to a central Stannis webserver/dashboard.
 
+* CI https://ci.starkandwayne.com/teams/main/pipelines/stannis-boshrelease
+
 Usage
 -----
 
