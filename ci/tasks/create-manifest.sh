@@ -54,6 +54,6 @@ export DEPLOYMENT_NAME=${deployment_name}
 ./templates/make_manifest warden \
   tmp/releases.yml tmp/bosh.yml
 
-cp tmp/stannis*manifest.yml ${manifest_dir}/manifest.yml
+cp tmp/*manifest.yml ${manifest_dir}/manifest.yml
 
 cat ${manifest_dir}/manifest.yml
