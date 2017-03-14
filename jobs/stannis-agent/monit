@@ -1,0 +1,5 @@
+check process stannis-agent
+  with pidfile /var/vcap/sys/run/stannis-agent/stannis-agent.pid
+  start program "/var/vcap/jobs/stannis-agent/bin/monit_debugger agent_ctl '/var/vcap/jobs/stannis-agent/bin/agent_ctl start'"
+  stop program "/var/vcap/jobs/stannis-agent/bin/monit_debugger agent_ctl '/var/vcap/jobs/stannis-agent/bin/agent_ctl stop'"
+  group vcap

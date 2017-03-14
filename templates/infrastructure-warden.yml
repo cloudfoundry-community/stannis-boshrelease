@@ -13,7 +13,7 @@ update:
   update_watch_time: 1000-30000
 
 instance_groups:
-  - name: agent
+  - name: stannis-agent
     resource_pool: small_z1
     networks:
       - name: stannis1

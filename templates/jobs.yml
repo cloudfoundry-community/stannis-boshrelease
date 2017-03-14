@@ -6,9 +6,9 @@ update:
   serial: false
 
 instance_groups:
-  - name: agent
+  - name: stannis-agent
     jobs:
-    - {name: agent, release: stannis}
+    - {name: stannis-agent, release: stannis}
     - {name: aws_snapshots, release: stannis}
     - {name: cf_usage, release: stannis}
     instances: 1
