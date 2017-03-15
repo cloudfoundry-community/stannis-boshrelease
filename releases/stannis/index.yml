@@ -24,4 +24,6 @@ builds:
     version: '11'
   5aebcd05-54fe-4e35-b775-7e9c9ffe48e4:
     version: '12.0'
+  20045a15-9592-4943-942c-af3c6081d833:
+    version: 12.0.1
 format-version: '2'

@@ -1,0 +1,51 @@
+---
+packages:
+- name: aws_snapshots_stannisplugin
+  version: 5069d83a5c0ff3a336c7c7a562dcead7531244e0
+  fingerprint: 5069d83a5c0ff3a336c7c7a562dcead7531244e0
+  sha1: 5291a97c694c6958c4c809569f3f4a3174ca90ca
+  dependencies:
+  - ruby
+- name: cf_usage_stannisplugin
+  version: 24255655c8f660f064f11790e953eb4a0541a1e7
+  fingerprint: 24255655c8f660f064f11790e953eb4a0541a1e7
+  sha1: 4067c39480011628cae0d444ad97aaaad3bdeaec
+  dependencies:
+  - ruby
+- name: golang
+  version: d1edded7a7f3f790e083acd05929b5ff83600f8d
+  fingerprint: d1edded7a7f3f790e083acd05929b5ff83600f8d
+  sha1: a1958da63a0fd9035e1fdb36c56d026cd1a1a7d0
+  dependencies: []
+- name: ruby
+  version: 3806993d2569cfc8327d742f1938fe876ac0b50a
+  fingerprint: 3806993d2569cfc8327d742f1938fe876ac0b50a
+  sha1: a5b6313d728894b1c5b4cbe474b3c763d6e02d42
+  dependencies: []
+- name: stannis-agent
+  version: e86027355ffe5a3b1d6247a3e516d737249e4ee5
+  fingerprint: e86027355ffe5a3b1d6247a3e516d737249e4ee5
+  sha1: 0b5ae9fd8ff45cd3cf93684c09e8f8ec97fcb180
+  dependencies:
+  - golang
+jobs:
+- name: aws_snapshots
+  version: a398f89120ce80752a9c57ea7aed5784c6dd1946
+  fingerprint: a398f89120ce80752a9c57ea7aed5784c6dd1946
+  sha1: 14ca1265ad869f45b32e4df83e5592446a66cf6f
+- name: cf_usage
+  version: e5899b7849950269a5fe3b05470cef4b1b3b9b88
+  fingerprint: e5899b7849950269a5fe3b05470cef4b1b3b9b88
+  sha1: '0236169bc17b83b6855976efcb8145f178ca2898'
+- name: stannis-agent
+  version: 7e1593d05e7c5ac4c1c4e3a52abad6032912e57b
+  fingerprint: 7e1593d05e7c5ac4c1c4e3a52abad6032912e57b
+  sha1: a6493dc462e934a2ca18df4c3a509b70a765ec2c
+license:
+  version: 5413b0e2da9e3992fb7d3f2da98b2b306e28d594
+  fingerprint: 5413b0e2da9e3992fb7d3f2da98b2b306e28d594
+  sha1: 5abc94f6898d2cacd77da1eb4afe38af9732ebfc
+commit_hash: 865dc998
+uncommitted_changes: true
+name: stannis
+version: 12.0.1
