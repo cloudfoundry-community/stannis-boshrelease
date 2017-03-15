@@ -3,7 +3,7 @@
 set -e
 
 VERSION=$(cat version/number)
-RELEASE_NAME=${RELEASE_NAME:-"stannis"}
+RELEASE_NAME=$(spruce json boshrelease/config/final.yml | jq -r .final_name)
 
 FINAL_RELEASE_TARBALL=$PWD/final-release-tarball
 FINAL_RELEASE_REPO=$PWD/final-release-repo
