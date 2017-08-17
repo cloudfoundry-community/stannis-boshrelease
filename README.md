@@ -12,65 +12,23 @@ This BOSH release deploys an agent that polls a BOSH for its list of deployments
 Usage
 -----
 
-To use this bosh release, first upload it to your BOSH:
+To use this BOSH release to monitor your BOSH and its deployments:
 
 ```
-bosh upload release https://bosh.io/d/github.com/cloudfoundry-community/stannis-boshrelease
+git clone https://bosh.io/d/github.com/cloudfoundry-community/stannis-boshrelease
+cd stannis-boshrelease
+bosh deploy manifests/stannis.yml --vars-file tmp/vars.yml
 ```
 
-Next, create a `my-bosh.yml` stub that documents that connection credentials to your BOSH, and the details of your Stannis webserver:
+Where `tmp/vars.yml` is a simple YAML file that documents that connection credentials to your BOSH, and the details of your Stannis webserver:
 
 ```yaml
 ---
-properties:
-  bosh_uploader:
-    bosh_target: https://50.18.92.50:25555
-    bosh_username: admin
-    bosh_password: crazypassword
+bosh-target: https://50.18.92.50:25555
+bosh-username: admin
+bosh-password: crazypassword
 
-    webserver_api: http://our-stannis.cfapps.io
-    webserver_username: stannis
-    webserver_password: crazypassword
-```
-
-For [bosh-lite](https://github.com/cloudfoundry/bosh-lite), you can quickly create a deployment manifest & deploy a cluster:
-
-```
-git clone https://github.com/cloudfoundry-community/stannis-boshrelease.git
-cd stannis-boshrelease
-templates/make_manifest warden my-bosh.yml
-bosh -n deploy
-```
-
-### Monitor AWS RDS snapshots
-
-If your deployments are known to use AWS RDS servers then there is a Stannis plugin that can monitor the age of last RDS snapshots.
-
-Add the following to your deployment manifest:
-
-```yaml
-# demo ge-predix
-aws:
-  aws_access_key_id: KEY
-  aws_secret_access_key: SECRET
-
-aws_snapshots:
-  deployments:
-    - bosh_really_uuid: BOSHIP-BOSHUUID
-      deployment_name: prod-cf
-      label: backups-rds
-      rds:
-      - instance_id: ccdb-prod
-      - instance_id: uaadb-prod
-```
-
-Note: `instance_id` must be converted to use hyphens instead of underscores if your RDS name used underscores.
-
-Development
------------
-
-As a developer of this release, create new releases and upload them:
-
-```
-bosh create release --force && bosh upload release && bosh -n deploy
+webserver-api: http://our-stannis.cfapps.io
+webserver-username: stannis
+webserver-password: crazypassword
 ```

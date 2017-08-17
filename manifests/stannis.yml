@@ -1,0 +1,46 @@
+name: stannis
+
+instance_groups:
+- name: stannis
+  azs: [z1]
+  instances: 2
+  vm_type: default
+  stemcell: default
+  networks: [{name: default}]
+  jobs:
+  - name: stannis-agent
+    release: stannis
+  - name: aws_snapshots
+    release: stannis
+  - name: cf_usage
+    release: stannis
+
+properties:
+  bosh_uploader:
+    bosh_target: ((bosh-target))
+    bosh_username: ((bosh-username))
+    bosh_password: ((bosh-password))
+    webserver_api: ((webserver-api))
+    webserver_username: ((webserver-username))
+    webserver_password: ((webserver-password))
+  aws: ~
+  aws_snapshots: ~
+  cf_usage: ~
+
+update:
+  canaries: 0
+  max_in_flight: 1
+  serial: true
+  canary_watch_time: 1000-30000
+  update_watch_time: 1000-30000
+
+stemcells:
+- alias: default
+  os: ubuntu-trusty
+  version: latest
+
+releases:
+- name: stannis
+  version: 12.0.1
+  url: https://bosh.io/d/github.com/cloudfoundry-community/stannis-boshrelease?v=12.0.1
+  sha1: f2f7e29418a5dff5a2bf849e920f45df238ee7fd
