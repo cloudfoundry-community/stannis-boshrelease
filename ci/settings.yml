@@ -31,3 +31,20 @@ meta:
     channel: '#stannis'
     blob_success:  '(( concat "$BUILD_PIPELINE_NAME: New version of $BUILD_JOB_NAME was detected, and updated in master. <" meta.url "/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME| Cut a new release?>" ))'
     blob_failure:  '(( concat "$BUILD_PIPELINE_NAME: :airplane_arriving: <" meta.url "/teams/$BUILD_TEAM_NAME/pipelines/$BUILD_PIPELINE_NAME/jobs/$BUILD_JOB_NAME/builds/$BUILD_NAME| Failed to update the blob for $BUILD_JOB_NAME>" ))'
+
+
+  stannis:
+    starkandwayne:
+      webserver:
+        api:      (( vault "secret/stannis/starkandwayne/webserver:api" ))
+        username: (( vault "secret/stannis/starkandwayne/webserver:username" ))
+        password: (( vault "secret/stannis/starkandwayne/webserver:password" ))
+
+  manifest:
+    vars: (( concat
+      "\nbosh-target="   meta.bosh-lite.target
+      "\nbosh-username=" meta.bosh-lite.username
+      "\nbosh-password=" meta.bosh-lite.password
+      "\nwebserver-api="      meta.stannis.starkandwayne.webserver.api
+      "\nwebserver-password=" meta.stannis.starkandwayne.webserver.password
+      "\nwebserver-username=" meta.stannis.starkandwayne.webserver.username ))
