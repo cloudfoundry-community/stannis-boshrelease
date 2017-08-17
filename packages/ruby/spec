@@ -1,6 +1,6 @@
 ---
 name: ruby
-dependencies: {}
+dependencies: []
 files:
   - ruby/ruby-2.1.5.tar.gz
   - ruby/rubygems-2.4.8.tgz
