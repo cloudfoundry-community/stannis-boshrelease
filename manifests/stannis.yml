@@ -41,6 +41,6 @@ stemcells:
 
 releases:
 - name: stannis
-  version: 12.0.1
-  url: https://bosh.io/d/github.com/cloudfoundry-community/stannis-boshrelease?v=12.0.1
-  sha1: f2f7e29418a5dff5a2bf849e920f45df238ee7fd
+  version: 12.1.0
+  url: https://github.com/cloudfoundry-community/stannis-boshrelease/releases/download/v12.1.0/stannis-12.1.0.tgz
+  sha1: 95c2374b2a64cf5b37b6d032a6dd9392a66ae60e
