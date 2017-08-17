@@ -3,7 +3,7 @@ meta:
   name:    stannis
   target:  sw
   url:     https://ci.starkandwayne.com
-  test-errand: sanity-tests
+  test-errand: ~
 
   initial_version: 12.1.0
 
