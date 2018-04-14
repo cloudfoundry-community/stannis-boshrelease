@@ -12,11 +12,14 @@ properties:
   bosh_uploader.interval:
     description: Interval in seconds between uploads of latest data
     default: 60
-  bosh_uploader.bosh_target:
+
+  bosh_uploader.bosh_environment:
     description: The https://1.2.3.4:25555 URI for target BOSH
-  bosh_uploader.bosh_username:
+  bosh_uploader.bosh_ca_cert:
+    description: The root CA for the BOSH
+  bosh_uploader.bosh_client:
     description: The username for authentication to BOSH
-  bosh_uploader.bosh_password:
+  bosh_uploader.bosh_client_secret:
     description: The password for authentication to BOSH
 
   bosh_uploader.webserver_api:

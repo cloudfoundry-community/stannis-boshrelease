@@ -13,3 +13,9 @@ export DEPLOYMENT_NAME=<%= spec.deployment %>
 export DNS_ROOT=<%= spec.dns_domain_name %>
 
 export UPLOAD_INTERVAL=<%= p("bosh_uploader.interval") %>
+
+export PATH=/var/vcap/packages/bosh-cli/bin:$PATH
+export BOSH_ENVIRONMENT="<%= p("bosh_uploader.bosh_environment") %>"
+export BOSH_CA_CERT="<%= p("bosh_uploader.bosh_ca_cert") %>"
+export BOSH_CLIENT="<%= p("bosh_uploader.bosh_client") %>"
+export BOSH_CLIENT_SECRET="<%= p("bosh_uploader.bosh_client_secret") %>"

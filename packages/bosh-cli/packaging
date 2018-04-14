@@ -2,3 +2,4 @@ set -eux
 
 mkdir -p $BOSH_INSTALL_TARGET/bin
 cp bosh-cli/bosh* $BOSH_INSTALL_TARGET/bin/bosh
+chmod +x $BOSH_INSTALL_TARGET/bin/bosh

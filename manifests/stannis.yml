@@ -3,7 +3,7 @@ name: stannis
 instance_groups:
 - name: stannis
   azs: [z1]
-  instances: 2
+  instances: 1
   vm_type: default
   stemcell: default
   networks: [{name: default}]
@@ -17,12 +17,13 @@ instance_groups:
 
 properties:
   bosh_uploader:
-    bosh_target: ((bosh-target))
-    bosh_username: ((bosh-username))
-    bosh_password: ((bosh-password))
-    webserver_api: ((webserver-api))
-    webserver_username: ((webserver-username))
-    webserver_password: ((webserver-password))
+    bosh_environment: ((bosh_environment))
+    bosh_ca_cert: ((bosh_ca_cert))
+    bosh_client: ((bosh_client))
+    bosh_client_secret: ((bosh_client_secret))
+    webserver_api: ((webserver_api))
+    webserver_username: ((webserver_username))
+    webserver_password: ((webserver_password))
   aws: ~
   aws_snapshots: ~
   cf_usage: ~
