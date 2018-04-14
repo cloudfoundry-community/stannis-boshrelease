@@ -1,4 +1,4 @@
 ---
 name: cf_usage_stannisplugin
-dependencies: [ruby]
+dependencies: [ruby-2.4-r3]
 files: [plugins/cf_usage_stannisplugin/**/*]

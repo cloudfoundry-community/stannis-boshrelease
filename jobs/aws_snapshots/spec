@@ -1,7 +1,7 @@
 ---
 name: aws_snapshots
 packages:
-- ruby
+- ruby-2.4-r3
 - aws_snapshots_stannisplugin
 templates:
   bin/aws_snapshots_ctl: bin/aws_snapshots_ctl

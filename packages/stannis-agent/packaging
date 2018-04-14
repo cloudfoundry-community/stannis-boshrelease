@@ -1,19 +1,9 @@
-set -e # exit immediately if a simple command exits with a non-zero status
-set -u # report the usage of uninitialized variables
-set +x # display each command as is run
+set -eux
 
-# Detect # of CPUs so make jobs can be parallelized
-CPUS=`grep -c ^processor /proc/cpuinfo`
+cd agent
+source /var/vcap/packages/golang-1-linux/bosh/compile.env
 
-# Golang package must be a dependency
-export GOROOT=$(readlink -nf /var/vcap/packages/golang)
-export PATH=${GOROOT}/bin:$PATH
-
-mkdir -p ${BOSH_COMPILE_TARGET}/gocode/src/github.com/docker
-export GOPATH=${BOSH_COMPILE_TARGET}/agent:${BOSH_COMPILE_TARGET}/agent/src/github.com/cloudfoundry-community/stannis/Godeps/_workspace
-
-cd ${BOSH_COMPILE_TARGET}/agent/src/github.com/cloudfoundry-community/stannis
-go install -v -a
+go install -v -a github.com/cloudfoundry-community/stannis
 
 mkdir -p ${BOSH_INSTALL_TARGET}/bin
-cp -a ${BOSH_COMPILE_TARGET}/agent/bin/* ${BOSH_INSTALL_TARGET}/bin
+cp -a bin/* ${BOSH_INSTALL_TARGET}/bin
