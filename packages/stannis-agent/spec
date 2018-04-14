@@ -1,6 +1,6 @@
 ---
 name: stannis-agent
 dependencies:
-- golang
+- golang-1-linux
 files:
 - agent/**/*
