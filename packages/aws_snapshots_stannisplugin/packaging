@@ -6,4 +6,4 @@ cp -a plugins/aws_snapshots_stannisplugin/* ${BOSH_INSTALL_TARGET}/
 
 cd ${BOSH_INSTALL_TARGET}/
 bosh_bundle
-bosh_generate_runtime_env
+# bosh_generate_runtime_env
