@@ -1,0 +1,15 @@
+- path: /releases/name=stannis/url
+  type: replace
+  value: "https://s3.amazonaws.com/stannis-boshrelease/compiled-releases/stannis-13.0.0-ubuntu-trusty-3541.12-20180415-004605-648154377-20180415004615.tgz"
+- path: /releases/name=stannis/version
+  type: replace
+  value: "13.0.0"
+- path: /releases/name=stannis/sha1
+  type: replace
+  value: "2fccf0624ca091e11df4438486459583bef06eac"
+
+- path: /releases/name=stannis/stemcell?
+  type: replace
+  value:
+    os: "ubuntu-trusty"
+    version: "3541.12"
