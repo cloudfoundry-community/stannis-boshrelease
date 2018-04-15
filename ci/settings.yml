@@ -19,23 +19,6 @@ meta:
     username: ((bosh-lite-client))
     password: ((bosh-lite-client-secret))
 
-  stannis:
-    starkandwayne:
-      webserver:
-        api:      ((webserver_api))
-        username: ((webserver_username))
-        password: ((webserver_password))
-
-  manifest:
-    vars: (( concat
-      "\nbosh_environment="   meta.bosh-lite.target
-      "\nbosh_client=" meta.bosh-lite.username
-      "\nbosh_client_secret=" meta.bosh-lite.password
-      "\nbosh_ca_cert=" meta.bosh-lite.cacert
-      "\nwebserver_api="      meta.stannis.starkandwayne.webserver.api
-      "\nwebserver_password=" meta.stannis.starkandwayne.webserver.password
-      "\nwebserver_username=" meta.stannis.starkandwayne.webserver.username ))
-
   aws:
     bucket: (( grab meta.pipeline ))
     access_key: ((aws-cfcommunity-access))

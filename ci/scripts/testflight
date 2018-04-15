@@ -149,7 +149,6 @@ bosh2 int ${MANIFEST_PATH} \
   ${op_patch_files_flags}            \
   --vars-store tmp/creds.yml \
   --vars-file  tmp/vars.yml  \
-  --var-errs \
     > tmp/manifest.yml
 
 bosh2 -n deploy tmp/manifest.yml
