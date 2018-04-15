@@ -1,0 +1,23 @@
+- path: /instance_groups/name=bosh/jobs/-
+  type: replace
+  value:
+    name: stannis-agent
+    release: stannis
+    properties:
+      bosh_uploader:
+        bosh_environment:   ((internal_ip))
+        bosh_ca_cert:       ((director_ssl.ca))
+        bosh_client:        admin
+        bosh_client_secret: ((admin_password))
+
+        webserver_api:      ((stannis_webserver_api))
+        webserver_username: ((stannis_webserver_username))
+        webserver_password: ((stannis_webserver_password))
+
+- path: /releases/-
+  type: replace
+  value:
+    name: stannis
+    version: use-compiled-releases.yml
+    url:     use-compiled-releases.yml
+    sha1:    use-compiled-releases.yml
