@@ -1,0 +1,55 @@
+name: stannis
+version: 13.0.0
+commit_hash: fca5928
+uncommitted_changes: false
+jobs:
+- name: aws_snapshots
+  version: d34f8f7867c12f1d10ca94691b1e8faac1ee4939
+  fingerprint: d34f8f7867c12f1d10ca94691b1e8faac1ee4939
+  sha1: 32b3f7b42e3c32bd9f8add605ec1e30bd7069355
+- name: cf_usage
+  version: 64bfcf12dc4bbb0a42bebd03ea90e93ab0bba9ed
+  fingerprint: 64bfcf12dc4bbb0a42bebd03ea90e93ab0bba9ed
+  sha1: b156117afb38c1c47162c0ee14067dddceca8f67
+- name: stannis-agent
+  version: 186a92d8db2a027cf37dc4c0f83840dc0331c11f
+  fingerprint: 186a92d8db2a027cf37dc4c0f83840dc0331c11f
+  sha1: 5e9397f09447d1a7c693da1d9f76196064005b64
+packages:
+- name: aws_snapshots_stannisplugin
+  version: 1913247ed48f74688a70ff476198f61fa928855d
+  fingerprint: 1913247ed48f74688a70ff476198f61fa928855d
+  sha1: fe417aefbbd793c3d981df1c14c80f88bd22c7fb
+  dependencies:
+  - ruby-2.4-r3
+- name: bosh-cli
+  version: 11262f3d9542da2aba6799d490152ae11e914faa
+  fingerprint: 11262f3d9542da2aba6799d490152ae11e914faa
+  sha1: 335b0fa577ad435371856754542a7833516e930f
+  dependencies: []
+- name: cf_usage_stannisplugin
+  version: aee0c06c2321b39c0313d755c5c0805eec7f204f
+  fingerprint: aee0c06c2321b39c0313d755c5c0805eec7f204f
+  sha1: dbcd99aa8b57dd48efb450262ee2a6d6eef5949e
+  dependencies:
+  - ruby-2.4-r3
+- name: golang-1-linux
+  version: 4f3c42aabef059e5de7860640cf39ff2b151ba32
+  fingerprint: 4f3c42aabef059e5de7860640cf39ff2b151ba32
+  sha1: 547a22fa7d4c934397194c4657ed31586c4a1c60
+  dependencies: []
+- name: ruby-2.4-r3
+  version: cebf400204829301022dc07ba193fda8401f14b1
+  fingerprint: cebf400204829301022dc07ba193fda8401f14b1
+  sha1: e0ea17dbfc358efa417062aaa9349a27542df6d2
+  dependencies: []
+- name: stannis-agent
+  version: 0a6a12add821f0d0509c177c1e441842557946a0
+  fingerprint: 0a6a12add821f0d0509c177c1e441842557946a0
+  sha1: 740ff2ee383ed398a8d45ba6f0550fb87fe1fccc
+  dependencies:
+  - golang-1-linux
+license:
+  version: 5413b0e2da9e3992fb7d3f2da98b2b306e28d594
+  fingerprint: 5413b0e2da9e3992fb7d3f2da98b2b306e28d594
+  sha1: 5abc94f6898d2cacd77da1eb4afe38af9732ebfc
