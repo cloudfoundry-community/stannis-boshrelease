@@ -1,0 +1,4 @@
+---
+name: stannis-web-assets
+files:
+- agent/**/*

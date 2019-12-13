@@ -1,0 +1,5 @@
+check process stannis-webserver
+  with pidfile  /var/vcap/sys/run/stannis-webserver/stannis-webserver.pid
+  start program "/var/vcap/jobs/stannis-webserver/bin/webserver_ctl start"
+  stop program  "/var/vcap/jobs/stannis-webserver/bin/webserver_ctl stop"
+  group vcap

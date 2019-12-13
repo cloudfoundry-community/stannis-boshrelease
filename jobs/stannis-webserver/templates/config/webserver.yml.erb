@@ -1,0 +1,29 @@
+---
+auth:
+  username: <%= p('auth.username') %>
+  password: <%= p('auth.password') %>
+
+tiers:
+<% 
+tiers = p('tiers')
+raise "Requires at least one tiers definition" if tiers.empty?
+tiers.each do |tier|
+-%>
+- name: <%= tier['name'] %>
+  slots:
+<% 
+  slots = tier['slots']
+  raise "Tier requires at least one slot definition" if not slots or slots.empty?
+  slots.each do |slot|
+-%>
+  - name: <%= slot["name"] %>
+    filter:
+<%
+    filter = slot['filter']
+    raise "Pipeline definition requires a filter" unless filter
+    filter.each do |key, value|
+-%>
+      <%= key %>: <%= value %>
+<%  end 
+  end 
+end -%>

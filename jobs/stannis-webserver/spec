@@ -1,0 +1,46 @@
+---
+name: stannis-webserver
+packages: 
+- stannis-agent
+- stannis-web-assets
+
+templates:
+  bin/webserver_ctl: bin/webserver_ctl
+  config/webserver.yml.erb: config/webserver.yml
+
+properties:
+  auth.username:
+    description: Username for the user to authenticate as
+  auth.password:
+    description: Password for the user to authenticate as
+
+  port:
+    description: The port for the webserver to listen on
+    default: 80
+
+  tiers:
+    description: Describes the environments/datacenters in which releases are deployed
+    default: []
+    example:
+    - name: dc
+      slots:
+      - name: sandbox
+        filter:
+          bosh_uuid: uuid-vsphere-bosh-sandbox
+      - name: preprod
+        filter:
+          bosh_uuid: uuid-vsphere-bosh-preprod
+      - name: production
+        filter:
+          bosh_uuid: uuid-vsphere-bosh-production
+    - name: aws
+      slots:
+      - name: sandbox
+        filter:
+          bosh_uuid: uuid-aws-bosh-sandbox
+      - name: preprod
+        filter:
+          bosh_uuid: uuid-aws-bosh-preprod
+      - name: production
+        filter:
+          bosh_uuid: uuid-aws-bosh-production

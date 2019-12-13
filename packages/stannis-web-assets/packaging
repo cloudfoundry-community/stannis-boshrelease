@@ -1,0 +1,4 @@
+set -eux
+
+cp -r agent/src/github.com/cloudfoundry-community/stannis/templates "${BOSH_INSTALL_TARGET}"
+cp -r agent/src/github.com/cloudfoundry-community/stannis/public    "${BOSH_INSTALL_TARGET}"

@@ -1,0 +1,51 @@
+#!/bin/bash
+
+set -e # exit immediately if a simple command exits with a non-zero status
+set -u # report the usage of uninitialized variables
+
+export PORT="<%= p('port') %>"
+JOB_DIR="/var/vcap/jobs/stannis-webserver"
+LOG_DIR="/var/vcap/sys/log/stannis-webserver"
+PIDFILE="/var/vcap/sys/run/stannis-webserver/stannis-webserver.pid"
+
+case $1 in
+  start)
+    if [[ -f $PIDFILE ]]; then
+      PID=$(head -1 $PIDFILE)
+      test -n "$PID" && \
+        test -e "/proc/$PID" && \
+        echo "$(date) Bailing startup due to existing pid $PID" >> "${LOG_DIR}/webserver_ctl.log" && \
+        exit 1
+
+      echo "$(date) Removing stale pidfile" >> "${LOG_DIR}/webserver_ctl.log"
+      rm -f $PIDFILE
+    fi
+
+    # store pid in $PIDFILE
+    echo $$ > $PIDFILE
+    PID=$(head -1 $PIDFILE)
+    cd   /var/vcap/packages/stannis-web-assets/
+    echo "$(date) Exec'ing Stannis Webserver as PID ${PID}..." >> "${LOG_DIR}/webserver_ctl.log"
+    exec /var/vcap/packages/stannis-agent/bin/stannis webserver --config "$JOB_DIR/config/webserver.yml" \
+         >> "${LOG_DIR}/webserver.log" \
+        2>> "${LOG_DIR}/webserver.err.log"
+    ;;
+
+  stop)
+    PID=$(head -1 $PIDFILE)
+    if [[ -n "$PID" ]]; then
+      echo "$(date) Shutting down Stannis Webserver with PID $PID" >> "${LOG_DIR}/webserver_ctl.log"
+      kill "$PID" || true
+      while [ -e "/proc/$PID" ]; do sleep 0.1; done
+    else
+      echo "$(date) Skipping stop - no PID found"
+    fi
+    rm -f $PIDFILE
+    ;;
+  *)
+    echo "Usage: webserver_ctl {start|stop}"
+
+    ;;
+
+esac
+exit 0
